@@ -36,6 +36,16 @@ pip install -r requirements.txt
 HUMIDOR_DISCORD_WEBHOOK="your_webhook"
 ```
 
+- you will also need a secrets.h file in the ./phase2 folder with these variables
+```
+// env vars for wifi network
+const char* ssid = "yourwifinetwork";
+const char* password = "wifipassword";
+
+const char* endpoint = "http://yourraspiip:yourport/humidor";
+```
+
+
 - run the server on port `5001` with
 
 ```

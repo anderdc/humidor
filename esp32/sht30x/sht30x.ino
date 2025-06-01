@@ -1,6 +1,8 @@
 #include <Wire.h>
 #include "ArtronShop_SHT3x.h"
 
+// This is a basic script for reading sensor output and printing to serial monitor
+
 // 0x44 = The sensor's I²C address (factory default for SHT31).
 // &Wire = Tells it to use the main I²C bus
 ArtronShop_SHT3x sht3x(0x44, &Wire); 
