@@ -30,9 +30,9 @@ void setup() {
 
 
   // Sleep for 30 minutes (30 * 60 * 1_000_000 microseconds)
-  // Serial.println("Going to deep sleep for 30 minutes...");
-  // esp_sleep_enable_timer_wakeup(1 * 60 * 1000000ULL); // 30 min
-  // esp_deep_sleep_start();  // Does not return
+  Serial.println("Going to deep sleep for 1 hour...");
+  esp_sleep_enable_timer_wakeup(60 * 60 * 1000000ULL); // 30 min
+  esp_deep_sleep_start();  // Does not return
 }
 
 void loop() {

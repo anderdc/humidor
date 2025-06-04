@@ -34,5 +34,9 @@ def analyze(data: SHT30X):
     if data.humidity < 62 or data.humidity > 70:
         notify_discord_sync(f"**WARNING** - humidor is out of ideal humidity range\n- Temperature: {data.temperature}°F\n- Humidity: **{data.humidity}%** RH\n*ideal range is between 62%-70% @ 70°F*")
 
+    else:
+        notify_discord_sync(f"HI. humidor WITHIN ideal humidity range\n- Temperature: {data.temperature}°F\n- Humidity: **{data.humidity}%** RH\n*Light one up?*")
+
+
 if __name__ == '__main__':
     waitress.serve(app, host="0.0.0.0", port=5001)
