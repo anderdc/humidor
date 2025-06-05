@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from pydantic import ValidationError
 from raspi.models.models import SHT30X
-from raspi.discord import notify_discord_sync
+from raspi.discord import analyze, notify_discord_sync
 from raspi.logger import logger
 import waitress
 
