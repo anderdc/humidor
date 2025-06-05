@@ -5,6 +5,10 @@ from raspi.discord import notify_discord_sync
 from raspi.logger import logger
 import waitress
 
+'''
+    flask server to receive post requests from ESP-32
+'''
+
 app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
@@ -24,19 +28,6 @@ def humidor():
         logger.warning("Validation failed: %s", e.json())
         return jsonify({'error': e.errors()}), 400
     
-
-# The optimal humidity for storing cigars generally ranges between 62% and 70% relative humidity (RH).
-# While 70% RH is often cited as the ideal, some prefer a slightly lower range, such as 65% to 68% RH.
-def analyze(data: SHT30X):
-
-    # notify_discord_sync(f"Hi\n- Temperature: {payload.temperature}F\n- Humidity: {payload.humidity}% RH")
-
-    if data.humidity < 62 or data.humidity > 70:
-        notify_discord_sync(f"**WARNING** - humidor is out of ideal humidity range\n- Temperature: {data.temperature}°F\n- Humidity: **{data.humidity}%** RH\n*ideal range is between 62%-70% @ 70°F*")
-
-    else:
-        notify_discord_sync(f"HI. humidor WITHIN ideal humidity range\n- Temperature: {data.temperature}°F\n- Humidity: **{data.humidity}%** RH\n*Light one up?*")
-
 
 if __name__ == '__main__':
     waitress.serve(app, host="0.0.0.0", port=5001)
