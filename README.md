@@ -17,7 +17,19 @@ A circuit using an ESP32 with capabilities to:
 - send an alert over wifi for when humidity is too low/high
 - send an alert over wifi for low battery/power
 - A flask backend for relaying the sensor data to a discord bot
-- runs on battery power (1 18650 battery) and lasts > 1 week without needing recharge
+- runs on battery power (1 18650 battery) and lasts > 1 week until needing recharge
+
+#### Wiring Schematics
+
+- Pinout Diagram for the esp I used (ESP-WROOM-32)
+  ![ESP-32 pinout](img/esp32-pinout.png)
+
+- Wiring Diagram
+
+- Required electronic pieces
+  - ESP-WROOM-32
+  - SHT30X/SHT31-D/SHT31 humidity sensor
+  -
 
 #### Getting Started with Flask & Waitress
 
@@ -33,6 +45,12 @@ pip install -r requirements.txt
 HUMIDOR_DISCORD_WEBHOOK="your_webhook"
 ```
 
+- run the server on port `5001` with
+
+```
+python -m raspi.backend
+```
+
 - you will also need a _secrets.h_ file in the `./phase2` folder with these variables, then flash `phase2.ino` onto your esp-32
 
 ```
@@ -41,12 +59,6 @@ const char* ssid = "yourwifinetwork";
 const char* password = "wifipassword";
 
 const char* endpoint = "http://yourraspiip:yourport/humidor";
-```
-
-- run the server on port `5001` with
-
-```
-python -m raspi.backend
 ```
 
 **Random Notes**
