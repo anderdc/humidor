@@ -9,7 +9,7 @@ The premise of this project is to build my own humidor notification system for a
 3. I'll be able to _implement creativity_ with novel solutions to a problem and _acquisition of knowledge_.
 4. I'll (re)learn the basics of working with microcontrollers, sensors, wiring, soldering, prototyping, and (perhaps) IoT.
 
-#### Deliverables
+### Deliverables
 
 A circuit using an ESP32 with capabilities to:
 
@@ -19,7 +19,7 @@ A circuit using an ESP32 with capabilities to:
 - A flask backend for relaying the sensor data to a discord bot
 - runs on battery power (1 18650 battery) and lasts > 1 week until needing recharge
 
-#### Wiring Schematics
+### Wiring Schematics
 
 - Pinout Diagram for the esp I used (ESP-WROOM-32)
   ![ESP-32 pinout](img/esp32-pinout.png)
@@ -31,7 +31,7 @@ A circuit using an ESP32 with capabilities to:
   - SHT30X/SHT31-D/SHT31 humidity sensor
   -
 
-#### Getting Started with Flask & Waitress
+### Getting Started with Flask & Waitress
 
 - Install requirements using a venv
 
@@ -61,7 +61,8 @@ const char* password = "wifipassword";
 const char* endpoint = "http://yourraspiip:yourport/humidor";
 ```
 
-**Random Notes**
+#### ad hoc notes
+
 I2C is a communication protocol used to connect sensors and peripherals to microcontrollers
 
 Serial Data (SDA) The data line — sends/receives data between the microcontroller and sensor
