@@ -10,11 +10,11 @@ ArtronShop_SHT3x sht3x(0x44, &Wire);
 
 void setup() {
   Serial.begin(115200);
-  connectToWiFi();
   setupSensor();
+  connectToWiFi();
 
-  Serial.println("waiting 3 seconds for the sensor to startup.");
-  delay(3000);
+  Serial.println("waiting 1.5 seconds for the sensor to startup.");
+  delay(1500);
 
   if (sht3x.measure()) {
     float tempC = sht3x.temperature();
@@ -31,7 +31,7 @@ void setup() {
 
   // Sleep for 30 minutes (30 * 60 * 1_000_000 microseconds)
   Serial.println("Going to deep sleep for 1 hour...");
-  esp_sleep_enable_timer_wakeup(60 * 60 * 1000000ULL); // 30 min
+  esp_sleep_enable_timer_wakeup(60 * 60 * 1000000ULL); 
   esp_deep_sleep_start();  // Does not return
 }
 

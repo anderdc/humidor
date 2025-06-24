@@ -9,6 +9,8 @@ import waitress
     flask server to receive post requests from ESP-32
 '''
 
+PORT = 5001
+
 app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
@@ -18,7 +20,7 @@ def hello():
 @app.route('/humidor', methods=['POST'])
 def humidor():
     try:
-        payload = SHT30X(**request.get_json())
+        payload = SHT30X(**request.get_json())  # double asterisk means turn into a dict
         logger.info("POST request called with: %s", payload.model_dump())
 
         analyze(payload)
@@ -30,4 +32,4 @@ def humidor():
     
 
 if __name__ == '__main__':
-    waitress.serve(app, host="0.0.0.0", port=5001)
+    waitress.serve(app, host="0.0.0.0", port=PORT)
