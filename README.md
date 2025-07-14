@@ -17,7 +17,7 @@ A circuit using an ESP32 with capabilities to:
 - send an alert over wifi for when humidity is too low/high
 - send an alert over wifi for low battery/power
 - A flask backend for relaying the sensor data to a discord bot
-- runs on battery power (1 18650 battery) and lasts > 1 week until needing recharge
+- runs on battery power (1 protected 18650 battery) and lasts > 1 week before needing recharge
 
 ### Hardware
 
@@ -25,8 +25,8 @@ A circuit using an ESP32 with capabilities to:
 
   - ESP-WROOM-32
   - SHT30X/SHT31-D/SHT31 humidity sensor
-  - TPL5110 nano-power system timer (for power optimization)
-  - S9V11F5 buck-boost converter
+  - [TPL5110 nano-power system timer](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-tpl5110-power-timer-breakout.pdf) (for power optimization)
+  - [S9V11F5](https://www.pololu.com/product/2836) buck-boost converter
 
 - Pinout Diagram reference for the esp I used (ESP-WROOM-32)
   ![ESP-32 pinout](img/esp32-pinout.png)
