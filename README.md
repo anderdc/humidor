@@ -1,13 +1,13 @@
 ## Humidor
 
-The premise of this project is to build my own humidor notification system for a cigar box.
+The premise of this project is to build my own humidor notification system for a cigar box. At a generic level, this is essentially a temperature/humidity notification system.
 
 ### Why do this?
 
 1. I like cigars and want to be able to store a small collection at my house.
 2. This would be a great way to get my hands back into hobbyist electronics and _inventing_.
 3. I'll be able to _implement creativity_ with novel solutions to a problem and _acquisition of knowledge_.
-4. I'll (re)learn the basics of working with microcontrollers, sensors, wiring, soldering, prototyping, and (perhaps) IoT.
+4. I'll (re)learn the basics of working with microcontrollers, sensors, wiring, soldering, prototyping, optimizing power solutions, and (perhaps) IoT.
 
 ### Deliverables
 
@@ -19,29 +19,32 @@ A circuit using an ESP32 with capabilities to:
 - A flask backend for relaying the sensor data to a discord bot
 - runs on battery power (1 18650 battery) and lasts > 1 week until needing recharge
 
-### Wiring Schematics
+### Hardware
 
-- Pinout Diagram for the esp I used (ESP-WROOM-32)
+- Required electronics
+
+  - ESP-WROOM-32
+  - SHT30X/SHT31-D/SHT31 humidity sensor
+  - TPL5110 nano-power system timer (for power optimization)
+  - S9V11F5 buck-boost converter
+
+- Pinout Diagram reference for the esp I used (ESP-WROOM-32)
   ![ESP-32 pinout](img/esp32-pinout.png)
 
 - Wiring Diagram
 
-- Required electronic pieces
-  - ESP-WROOM-32
-  - SHT30X/SHT31-D/SHT31 humidity sensor
-  -
+### Software
 
-### Getting Started with Flask & Waitress
-
-- Install requirements using a venv
+- on your raspberry pi (or any other home server) Install requirements using a venv
 
 ```bash
 pip install -r requirements.txt
 ```
 
-- your raspi environment needs to have these variables exported
+- your environment needs to have these variables exported
 
 ```bash
+# make sure to set up a webhook in discord, copy and export to your server env
 HUMIDOR_DISCORD_WEBHOOK="your_webhook"
 ```
 
@@ -68,3 +71,11 @@ I2C is a communication protocol used to connect sensors and peripherals to micro
 Serial Data (SDA) The data line — sends/receives data between the microcontroller and sensor
 
 Serial Clock (SCL) The clock line — keeps everything in sync by pulsing with timing signals
+
+boost converters convert a low voltage to a higher (regulated) voltage
+
+buck converters convert a high voltage to a lower (regulated) voltage
+
+buck-boost converters can convert any voltage (based on specific circuit limitations) to a specified regulated voltage
+
+LDO's or linear dropout regulators convert a high voltage to a lower voltage, the voltage difference is dissipated via heat

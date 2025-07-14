@@ -22,7 +22,7 @@ def notify_discord_sync(message: str, webhook: str = HUMIDOR_DISCORD_WEBHOOK):
 # While 70% RH is often cited as the ideal, some prefer a slightly lower range, such as 65% to 68% RH.
 def analyze(data: SHT30X):
 
-    # notify_discord_sync(f"Hi\n- Temperature: {payload.temperature}F\n- Humidity: {payload.humidity}% RH")
+    notify_discord_sync(f"Hi\n- Temperature: {payload.temperature}F\n- Humidity: {payload.humidity}% RH")
 
     if data.humidity < 62 or data.humidity > 70:
         notify_discord_sync(f"**WARNING** - humidor is out of ideal humidity range\n- Temperature: {data.temperature}°F\n- Humidity: **{data.humidity}%** RH\n*ideal range is between 62%-70% @ 70°F*")
