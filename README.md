@@ -35,6 +35,8 @@ A circuit using an ESP32 with capabilities to:
 
 ### Software
 
+##### Server
+
 - on your raspberry pi (or any other home server) Install requirements using a venv
 
 ```bash
@@ -53,6 +55,8 @@ HUMIDOR_DISCORD_WEBHOOK="your_webhook"
 ```
 python -m raspi.backend
 ```
+
+##### ESP
 
 - you will also need a _secrets.h_ file in the `./phase2` folder with these variables, then flash `phase2.ino` onto your esp-32
 
