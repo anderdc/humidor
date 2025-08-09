@@ -15,7 +15,7 @@ A circuit using an ESP32 with capabilities to:
 
 - read sensor output
 - send an alert over wifi for when humidity is too low/high
-- send an alert over wifi for low battery/power
+- ~~send an alert over wifi for low battery/power~~
 - A flask backend for relaying the sensor data to a discord bot
 - runs on battery power (1 protected 18650 battery) and lasts > 1 week before needing recharge
 
