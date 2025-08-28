@@ -68,7 +68,7 @@ const char* password = "wifipassword";
 const char* endpoint = "http://yourraspiip:yourport/humidor";
 ```
 
-#### ad hoc notes
+#### random notes
 
 I2C is a communication protocol used to connect sensors and peripherals to microcontrollers
 
