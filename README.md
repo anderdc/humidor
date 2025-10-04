@@ -29,9 +29,12 @@ A circuit using an ESP32 with capabilities to:
   - [S9V11F5](https://www.pololu.com/product/2836) buck-boost converter
 
 - Pinout Diagram reference for the esp I used (ESP-WROOM-32)
+
   ![ESP-32 pinout](img/esp32-pinout.png)
 
-- Wiring Diagram
+- Wiring Schematic
+
+  ![schematic](img/sensor-schematic.png)
 
 ### Software
 
@@ -68,7 +71,15 @@ const char* password = "wifipassword";
 const char* endpoint = "http://yourraspiip:yourport/humidor";
 ```
 
-#### random notes
+### Conclusion
+
+- I set out and achieved everything I wanted to do with this project, every deliverable was met except for low power notifications.
+- It uses power efficiently and, after testing, 10+ days of life were achieved with a 3400mAh protected 18650 battery (not even fully charged).
+- A good exercise to do would be to calculate the average power it consumes and average current draw. I do know that the TPL draws 20 microamps when idling.
+- After learning and re-learning so much doing this project one notable technology I learned was how to use Kicad (for the schematic) at a basic level.
+- My favorite part (after learning a lot about power usage/efficiency) was finally holding the chosen buck-boost convertor in my hand. I felt I had made the right choice after so much research. Once I wired it up, everything seemed to fall into place.
+
+#### Random Notes
 
 I2C is a communication protocol used to connect sensors and peripherals to microcontrollers
 
